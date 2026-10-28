@@ -1,0 +1,56 @@
+@use "variable" as vars;
+
+
+@mixin float($font:20px,$line:22px){
+  font-size: $font;
+  line-height: $line;
+  color: vars.$secondary-color;
+  font-family:'Lato-Bold';
+}
+
+@mixin top{
+  padding-top: 60px;
+}
+@mixin pl{
+     content: "";
+    height: 2px;
+    width: 34px;
+    background: #030d28;
+    display: block;
+    margin-top: 4px;
+}
+
+/* Breakpoint sizes */
+$screen-xs-max: 320px;
+$screen-sm-max: 479px;
+$screen-lg-max: 1025px;
+$screen-hm-max: 979px;
+$screen-md-max: 639px;
+$screen-pm-max: 1429px;
+$screen-dm-max: 767px;
+
+
+/* Create the mixin (usually in a separate .scss file) */
+@mixin breakpoint($media) {
+  @if $media == xs {
+    @media only screen and (max-width: $screen-xs-max) { @content; }
+  }
+  @else if $media == sm {
+    @media only screen and (max-width: $screen-sm-max) { @content; }
+  }
+  @else if $media == lg {
+    @media only screen and (max-width: $screen-lg-max) { @content; }
+  }
+  @else if $media == hm {
+    @media only screen and (max-width: $screen-hm-max) { @content; }
+  }
+  @else if $media == md {
+    @media only screen and (max-width: $screen-md-max) { @content; }
+  }
+  @else if $media == pm {
+    @media only screen and (max-width: $screen-pm-max) { @content; }
+  }
+  @else if $media == dm {
+    @media only screen and (max-width: $screen-dm-max) { @content; }
+  }
+}
